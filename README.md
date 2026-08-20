@@ -22,10 +22,10 @@ Modern, responsive, and high-performance corporate multi-sector web application 
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/KULLANICI_ADIN/REPO_ADIN.git](https://github.com/KULLANICI_ADIN/REPO_ADIN.git)
+git clone https://github.com/bardaktalper/corporate-web-app.git
 
 # 2. Navigate to project directory
-cd REPO_ADIN
+cd corporate-web-app
 
 # 3. Install dependencies
 npm install
