@@ -1,0 +1,162 @@
+// src/components/Sectors/Sectors.module.scss
+@import '../../styles/global.scss';
+
+.sectorsSection {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Yan yana 3 kart
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.card {
+  background-color: #0d0d0f;
+  border: 1px solid rgba($gold-primary, 0.4);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba($gold-primary, 0.1);
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #e63946;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+    z-index: 2;
+  }
+
+  .cardHeader {
+    text-align: center;
+    margin-bottom: 12px;
+    
+    h4 {
+      color: $gold-primary;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    h5 {
+      color: #e0e0e0;
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+
+    .cardImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s ease, transform 0.4s ease;
+    }
+  }
+  
+  &:hover .cardImage {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .cardBody {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cardSubtitle {
+      color: #b3b3b3;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .companyInfo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      width: 100%;
+
+      .logoPlaceholder {
+        color: $gold-primary;
+        opacity: 0.8;
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        text-align: left;
+        line-height: 1.3;
+        max-width: 180px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .cardFooter {
+    width: 100%;
+  }
+
+  .actionBtn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(to right, #b48b3b, #e6c875, #b48b3b);
+    color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: filter 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      filter: brightness(1.1);
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Tablet ve Mobil uyumluluk (Responsive tasarım)
+@media (max-width: 992px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr); // Tablette yan yana 2 kart
+  }
+}
+
+@media (max-width: 600px) {
+  .gridContainer {
+    grid-template-columns: 1fr; // Mobilde alt alta tek kart
+  }
+}

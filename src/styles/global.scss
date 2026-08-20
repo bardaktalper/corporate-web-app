@@ -1,0 +1,26 @@
+// src/styles/global.scss
+
+// Renk Paletimiz (Değişkenler)
+$bg-dark: #0f0f11;       // Koyu siyah/gri arka plan
+$gold-primary: #d4af37;  // Premium altın sarısı
+$text-light: #f4f4f5;    // Okunabilir açık gri/beyaz metin
+$text-muted: #9ca3af;    // Sönük metinler için
+
+// Temel Sıfırlama (Reset)
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif; // Premium durması için modern bir font
+}
+
+body {
+  background-color: $bg-dark;
+  color: $text-light;
+  overflow-x: hidden; // Yatayda taşmaları önler
+}
+
+// Global olarak kullanabileceğimiz altın rengi vurgu sınıfı
+.text-gold {
+  color: $gold-primary;
+}

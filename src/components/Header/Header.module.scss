@@ -1,0 +1,123 @@
+// src/components/Header/Header.module.scss
+@import '../../styles/global.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between; // Logoyu sola, menüyü sağa atar
+  align-items: center;
+  padding: 25px 80px;
+  background-color: rgba($bg-dark, 0.95);
+  border-bottom: 1px solid rgba($gold-primary, 0.2); // Alt kısma çok ince altın bir çizgi
+  position: sticky; // Sayfa kaydıkça üstte kalması için
+  top: 0;
+  z-index: 100;
+
+  .logo {
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: $text-light;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 40px; // Linkler arası boşluk
+
+      li {
+        a {
+          text-decoration: none;
+          color: $text-light;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          transition: color 0.3s ease; // Renk değişimini yumuşatır
+
+          &:hover {
+            color: $gold-primary; // Mouse ile üzerine gelince altın sarısı olur
+          }
+        }
+      }
+    }
+  }
+}
+// src/components/Header/Header.module.scss dosyasının en alt kısmına eklenecekler
+
+// --- MOBİL UYUMLULUK VE HAMBURGER MENÜ ---
+
+.hamburger {
+  display: none; // Büyük ekranda gizli
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 101; // Açılan menünün daima üstünde kalması için
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: $text-light;
+    transition: all 0.3s ease;
+  }
+
+  // Menü açıkken çizgileri 'X' şekline getiren animasyon
+  &.active {
+    .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      background-color: $gold-primary;
+    }
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+      background-color: $gold-primary;
+    }
+  }
+}
+
+// 768px ve altı ekranlar (Tablet ve Telefonlar) için kurallar
+@media (max-width: 768px) {
+  .header {
+    padding: 20px; // Mobilde sağdan soldan boşluğu biraz azaltıyoruz
+  }
+
+  .hamburger {
+    display: flex; // Mobilde üç çizgiyi göster
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%; // Ekranın sağından dışarıda, gizli başlat
+    width: 70%; // Menü çekmecesi ekranın %70'ini kaplasın
+    height: 100vh; // Tam ekran yüksekliği
+    background-color: rgba($bg-dark, 0.98); // Neredeyse tamamen siyah, lüks bir arka plan
+    border-left: 1px solid rgba($gold-primary, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Linkleri dikeyde ortala
+    align-items: center;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); // Kayarak gelme efekti
+    z-index: 100;
+
+    // React state'i isMenuOpen true olduğunda bu sınıf ekleniyor
+    &.open {
+      right: 0; // Menüyü ekranın içine kaydır
+    }
+
+    ul {
+      flex-direction: column; // Linkleri alt alta diz
+      gap: 40px; // Mobilde dokunması kolay olsun diye aralarını açıyoruz
+
+      li {
+        a {
+          font-size: 18px; // Mobilde daha okunabilir bir punto
+        }
+      }
+    }
+  }
+}

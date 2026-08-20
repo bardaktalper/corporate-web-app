@@ -1,0 +1,193 @@
+// src/pages/SectorDetails.module.scss
+@import '../styles/global.scss';
+
+.detailsContainer {
+  min-height: 100vh;
+  background-color: $bg-dark;
+  padding-bottom: 80px;
+}
+
+// Bulunamadı (404) ekranı
+.notFound {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .backBtn {
+    color: $bg-dark;
+    background-color: $gold-primary;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+// Üst Banner Kısmı
+.heroBanner {
+  height: 50vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba($gold-primary, 0.3);
+
+  .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(#0f0f11, 1) 100%);
+  }
+
+  .bannerContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 20px;
+
+    h4 {
+      font-size: 14px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+// YENİ: Alt İçerik ve Açıklama Kısmı (İki Sütunlu Yapı)
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr; // Sol taraf geniş, sağ taraf dar (Sidebar)
+  gap: 50px;
+}
+
+.mainContent {
+  .sectionTitle {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  .line {
+    width: 50px;
+    height: 2px;
+    background-color: $gold-primary;
+    margin-bottom: 30px;
+  }
+
+  .description {
+    color: $text-light;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+
+  .highlightsList {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      color: $text-muted;
+      font-size: 16px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// YENİ: Sağ Taraf (PDF İndirme ve Butonlar)
+.sidebar {
+  .actionCard {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba($gold-primary, 0.2);
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h3 {
+      color: $gold-primary;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .downloadBtn {
+      background-color: #2c2c35; // Lüks bir gri
+      color: #fff;
+      border: 1px solid #444;
+
+      &:hover {
+        background-color: #3d3d4a;
+        border-color: $gold-primary;
+      }
+    }
+
+    .primaryBtn {
+      background-color: $gold-primary;
+      color: $bg-dark;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    .secondaryBtn {
+      background-color: transparent;
+      color: $gold-primary;
+      border: 1px solid $gold-primary;
+
+      &:hover {
+        background-color: rgba($gold-primary, 0.1);
+      }
+    }
+  }
+}
+
+// Mobil Uyumluluk (Ekran küçüldüğünde)
+@media (max-width: 992px) {
+  .contentWrapper {
+    grid-template-columns: 1fr; // Mobilde yan yana değil alt alta diz
+  }
+  
+  .heroBanner .bannerContent h1 {
+    font-size: 28px;
+  }
+}
