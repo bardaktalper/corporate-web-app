@@ -3,7 +3,7 @@
 Modern, responsive, and high-performance corporate multi-sector web application built with React and SCSS.
 
 ## 🚀 Live Demo
-🔗 [Live Website] ([https://PROJENIN_CANLI_LINKI.vercel.app](https://xmax-site-kappa.vercel.app))
+🔗 [Live Website] ((https://xmax-site-kappa.vercel.app))
 
 ---
 
